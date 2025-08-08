@@ -1,4 +1,25 @@
-let button = document.querySelector("button");
+// Install App
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  document.getElementById("installBtn").style.display = "block";
+
+  document.getElementById("installBtn").addEventListener('click', () => {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('تم التثبيت');
+      }
+      deferredPrompt = null;
+    });
+  });
+});
+// End
+
+let button = document.querySelector(".click");
 let counter = document.querySelector(".counter");
 let text = document.querySelector(".text");
 let man = document.querySelector(".man");

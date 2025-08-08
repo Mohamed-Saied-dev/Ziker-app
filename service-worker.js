@@ -2,11 +2,11 @@ self.addEventListener("install", function (e) {
   e.waitUntil(
     caches.open("zikr-cache").then(function (cache) {
       return cache.addAll([
-        "/zikr-page/",
-        "/zikr-page/index.html",
-        "/zikr-page/main.css",
-        "/zikr-page/script.js",
-        "/zikr-page/icon.png"
+        "/Ziker-app/",
+        "/Ziker-app/index.html",
+        "/Ziker-app/main.css",
+        "/Ziker-app/script.js",
+        "/Ziker-app/icon.png"
       ]);
     })
   );
